@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx">
+
+    <Pane minHeight="20" maxHeight="20"/>
+
+    <HBox>
+        <Pane minWidth="20" maxWidth="20"/>
+        <VBox fx:id="root">
+
+        </VBox>
+    </HBox>
+
+</VBox>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx">
+
+    <top>
+        <Pane minHeight="30" maxHeight="30"/>
+    </top>
+
+    <center>
+        <ScrollPane prefWidth="1300" minHeight="800" maxHeight="800">
+            <VBox>
+                <Pane minHeight="30" maxHeight="30"/>
+                <HBox>
+                    <Pane minWidth="30" maxWidth="30"/>
+                    <VBox fx:id="contentPane"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+
+    </center>
+
+    <left>
+        <Pane minWidth="30" maxWidth="30"/>
+    </left>
+
+    <right>
+        <Pane minWidth="30" maxWidth="30"/>
+    </right>
+
+
+</BorderPane>

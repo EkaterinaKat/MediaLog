@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/kiki_notebook_db</property>
+        <property name="hibernate.connection.password">postgres</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Логирование -->
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">false</property>
+        <property name="hibernate.use_sql_comments">false</property>
+
+        <!-- Сущности -->
+        <mapping class="org.katyshevtseva.medialog.core.books.model.Author"></mapping>
+        <mapping class="org.katyshevtseva.medialog.core.books.model.Book"></mapping>
+
+        <mapping class="org.katyshevtseva.medialog.core.films.model.Film"></mapping>
+        <mapping class="org.katyshevtseva.medialog.core.films.model.FilmGenre"></mapping>
+        <mapping class="org.katyshevtseva.medialog.core.films.model.Actor"></mapping>
+        <mapping class="org.katyshevtseva.medialog.core.films.model.Trailer"></mapping>
+        <mapping class="org.katyshevtseva.medialog.core.films.model.Role"></mapping>
+
+        <mapping class="org.katyshevtseva.medialog.core.series.model.Series"></mapping>
+
+        <mapping class="org.katyshevtseva.medialog.core.music.entity.Album"></mapping>
+        <mapping class="org.katyshevtseva.medialog.core.music.entity.Genre"></mapping>
+        <mapping class="org.katyshevtseva.medialog.core.music.entity.Singer"></mapping>
+    </session-factory>
+</hibernate-configuration>

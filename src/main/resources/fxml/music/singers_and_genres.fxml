@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml">
+
+    <top>
+        <Pane minHeight="30" maxHeight="30"/>
+    </top>
+
+    <center>
+        <HBox>
+            <VBox fx:id="singerBox" maxWidth="500" minWidth="500" styleClass="black_border"/>
+            <Pane minWidth="15" maxWidth="15"/>
+            <VBox fx:id="genreBox" maxWidth="500" minWidth="500" styleClass="black_border"/>
+        </HBox>
+    </center>
+
+    <left>
+        <Pane minWidth="30" maxWidth="30"/>
+    </left>
+
+    <right>
+        <Pane minWidth="30" maxWidth="30"/>
+    </right>
+
+    <bottom>
+        <Pane minHeight="30" maxHeight="30"/>
+    </bottom>
+
+</BorderPane>

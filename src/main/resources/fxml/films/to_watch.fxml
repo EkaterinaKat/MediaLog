@@ -6,15 +6,15 @@
             xmlns="http://javafx.com/javafx">
 
     <top>
-        <Pane minHeight="30" maxHeight="30"/>
+        <Pane minHeight="24" maxHeight="24"/>
     </top>
 
     <center>
-        <ScrollPane prefWidth="1300" minHeight="800" maxHeight="800">
+        <ScrollPane prefWidth="1040" minHeight="640" maxHeight="640">
             <VBox>
-                <Pane minHeight="30" maxHeight="30"/>
+                <Pane minHeight="24" maxHeight="24"/>
                 <HBox>
-                    <Pane minWidth="30" maxWidth="30"/>
+                    <Pane minWidth="24" maxWidth="24"/>
                     <VBox fx:id="contentPane"/>
                 </HBox>
             </VBox>
@@ -23,11 +23,11 @@
     </center>
 
     <left>
-        <Pane minWidth="30" maxWidth="30"/>
+        <Pane minWidth="24" maxWidth="24"/>
     </left>
 
     <right>
-        <Pane minWidth="30" maxWidth="30"/>
+        <Pane minWidth="24" maxWidth="24"/>
     </right>
 
 

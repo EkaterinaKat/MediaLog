@@ -44,11 +44,11 @@ public class DetailsController implements FxController {
     @FXML
     private void initialize() {
         imageView.setImage(PosterFileManager.getPoster(film).getImage());
-        setImageWidthPreservingRatio(imageView, 300);
+        setImageWidthPreservingRatio(imageView, 240);
         titleLabel.setText(film.getTitleAndYear());
         detailsLabel.setText(film.getDetailsString());
         detailsLabel.setWrapText(true);
-        detailsLabel.setMaxWidth(600);
+        detailsLabel.setMaxWidth(480);
         FilmOperationsHelper.fillButtonBox(film, buttonBox, () -> {
             onUpdateDataListener.execute();
             FxUtils.closeWindowThatContains(titleLabel);
@@ -67,14 +67,14 @@ public class DetailsController implements FxController {
             trailers = trailers.subList(0, 5);
         }
         for (Trailer trailer : trailers) {
-            Label label = new LabelBuilder().text(trailer.getLabelInfo()).width(600).build();
+            Label label = new LabelBuilder().text(trailer.getLabelInfo()).width(480).build();
             label.setOnMouseClicked(event -> GeneralUtils.saveToClipBoard(trailer.getUrl()));
 
             Styler.setHoverStyle(
                     label,
                     Styler.getColorfullStyle(Styler.ThingToColor.TEXT, "#EF47FF"));
 
-            trailerBox.getChildren().addAll(label, FxUtils.getPaneWithHeight(15));
+            trailerBox.getChildren().addAll(label, FxUtils.getPaneWithHeight(12));
         }
     }
 }

@@ -125,7 +125,7 @@ public class AlbumDialogController implements FxController {
 
         genrePane.getChildren().clear();
         ComponentBuilder.Component<MultipleChoiceController<Genre>> toComponent = new ComponentBuilder()
-                .setSize(new Size(150, 240))
+                .setSize(new Size(120, 192))
                 .getMultipleChoiceComponent(MusicService.getGenres(), selectedGenres, false);
         genreChoiceController = toComponent.getController();
         genrePane.getChildren().add(toComponent.getNode());

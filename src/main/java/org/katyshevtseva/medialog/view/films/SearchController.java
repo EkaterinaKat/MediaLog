@@ -33,8 +33,8 @@ import static com.katyshevtseva.fx.ImageSizeUtil.setImageWidthPreservingRatio;
 import static com.katyshevtseva.general.GeneralUtils.isEmpty;
 
 public class SearchController implements SectionController {
-    private static final int POSTER_WIDTH = 200;
-    private static final int GRID_WIDTH = 1180;
+    private static final int POSTER_WIDTH = 160;
+    private static final int GRID_WIDTH = 944;
     @FXML
     private Button searchButton;
     @FXML
@@ -60,7 +60,7 @@ public class SearchController implements SectionController {
         } catch (Exception e) {
             Label label = new Label(e.getMessage());
             label.setWrapText(true);
-            FxUtils.setWidth(label, 800);
+            FxUtils.setWidth(label, 640);
             contentPane.getChildren().add(label);
         }
     }
@@ -79,22 +79,22 @@ public class SearchController implements SectionController {
     private Node getFilmNode(FilmResponse film, int blockWidth) {
         Label nameLabel = new Label(film.getTitleAndYear());
         FxUtils.setWidth(nameLabel, blockWidth);
-        FxUtils.setHeight(nameLabel, 50);
+        FxUtils.setHeight(nameLabel, 40);
         nameLabel.setWrapText(true);
         nameLabel.setTextAlignment(TextAlignment.CENTER);
         nameLabel.setAlignment(Pos.BASELINE_CENTER);
 
         VBox vBox = new VBox();
         vBox.getChildren().addAll(
-                getPaneWithHeight(10),
+                getPaneWithHeight(8),
                 nameLabel,
-                getPaneWithHeight(10));
+                getPaneWithHeight(8));
 
         PosterResponse poster = film.getPoster();
         if (poster != null && poster.getUrl() != null) {
             ImageView imageView = new ImageView(new Image(poster.getUrl()));
             setImageWidthPreservingRatio(imageView, blockWidth);
-            vBox.getChildren().addAll(imageView, getPaneWithHeight(10));
+            vBox.getChildren().addAll(imageView, getPaneWithHeight(8));
         }
 
         HBox hBox = new HBox();
@@ -118,7 +118,7 @@ public class SearchController implements SectionController {
         try {
             ToWatchService.saveToWatchFilm(film);
         } catch (Exception e) {
-            new StandardDialogBuilder().setSize(700).openInfoDialog("Ашипка! " + e);
+            new StandardDialogBuilder().setSize(560).openInfoDialog("Ашипка! " + e);
         }
     }
 }

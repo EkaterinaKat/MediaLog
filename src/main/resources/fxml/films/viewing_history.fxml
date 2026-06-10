@@ -8,13 +8,13 @@
             xmlns="http://javafx.com/javafx">
 
     <top>
-        <VBox prefWidth="1300">
-            <Pane minHeight="30" maxHeight="30"/>
+        <VBox prefWidth="1040">
+            <Pane minHeight="24" maxHeight="24"/>
             <HBox alignment="CENTER">
                 <Button fx:id="leftArrow" text="🡄"/>
-                <Pane minWidth="15" maxWidth="15"/>
+                <Pane minWidth="12" maxWidth="12"/>
                 <Label fx:id="yearLabel" styleClass="font_size_25"/>
-                <Pane minWidth="15" maxWidth="15"/>
+                <Pane minWidth="12" maxWidth="12"/>
                 <Button fx:id="rightArrow" text="🡆"/>
             </HBox>
         </VBox>
@@ -22,11 +22,11 @@
     </top>
 
     <center>
-        <ScrollPane prefWidth="1300" minHeight="800" maxHeight="800">
+        <ScrollPane prefWidth="1040" minHeight="640" maxHeight="640">
             <VBox>
-                <Pane minHeight="30" maxHeight="30"/>
+                <Pane minHeight="24" maxHeight="24"/>
                 <HBox>
-                    <Pane minWidth="30" maxWidth="30"/>
+                    <Pane minWidth="24" maxWidth="24"/>
                     <VBox fx:id="contentPane"/>
                 </HBox>
             </VBox>
@@ -35,11 +35,11 @@
     </center>
 
     <left>
-        <Pane minWidth="30" maxWidth="30"/>
+        <Pane minWidth="24" maxWidth="24"/>
     </left>
 
     <right>
-        <Pane minWidth="30" maxWidth="30"/>
+        <Pane minWidth="24" maxWidth="24"/>
     </right>
 
 

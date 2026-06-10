@@ -30,8 +30,8 @@ import static org.katyshevtseva.medialog.view.music.AlbumImageUtils.getImageCont
 import static org.katyshevtseva.medialog.view.utils.ViewConstants.ALBUM_DIALOG;
 
 public class AlbumsController implements SectionController {
-    private static final Size GRID_SIZE = new Size(830, 1300);
-    private static final int BLOCK_WIDTH = 370;
+    private static final Size GRID_SIZE = new Size(664, 1040);
+    private static final int BLOCK_WIDTH = 296;
     private BlockGridController<Album> albumGridController;
     @FXML
     private HBox albumsPane;
@@ -62,17 +62,17 @@ public class AlbumsController implements SectionController {
         titleLabel.setAlignment(Pos.BASELINE_CENTER);
 
         VBox vBox = new VBox();
-        vBox.getChildren().addAll(getPaneWithHeight(10), titleLabel, getPaneWithHeight(10));
+        vBox.getChildren().addAll(getPaneWithHeight(8), titleLabel, getPaneWithHeight(8));
 
         vBox.getChildren().addAll(
                 placeImageInSquare(new ImageView(getImageContainer(album).getImage()), blockWidth),
-                getPaneWithHeight(10));
+                getPaneWithHeight(8));
 
         Label infoLabel = FxUtils.getLabel(album.getFullInfo(), blockWidth);
-        vBox.getChildren().addAll(infoLabel, getPaneWithHeight(10));
+        vBox.getChildren().addAll(infoLabel, getPaneWithHeight(8));
 
         HBox hBox = new HBox();
-        hBox.getChildren().addAll(getPaneWithWidth(10), vBox, getPaneWithWidth(10));
+        hBox.getChildren().addAll(getPaneWithWidth(8), vBox, getPaneWithWidth(8));
         hBox.setStyle(Styler.getBlackBorderStyle() + getColorfullStyle(BACKGROUND, album.getGrade().getColor()));
         hBox.setOnContextMenuRequested(event -> showAlbumContextMenu(hBox, event, album));
         return hBox;

@@ -81,9 +81,9 @@ public class MainSeriesController implements SectionController {
     }
 
     private void adjustSeriesPane() {
-        int gridColumnWidth = 250;
-        Size gridColumnSize = new Size(850, gridColumnWidth);
-        int seriesBlockWidth = gridColumnWidth - 50;//BlockGridController FRAME_SIZE = 20; 50=20*2+10; 10 на scrollbar
+        int gridColumnWidth = 200;
+        Size gridColumnSize = new Size(680, gridColumnWidth);
+        int seriesBlockWidth = gridColumnWidth - 40;//BlockGridController FRAME_SIZE = 20; 50=20*2+10; 10 на scrollbar
 
         for (SeriesState state : SeriesState.values()) {
             ComponentBuilder.Component<BlockGridController<Series>> component =
@@ -132,7 +132,7 @@ public class MainSeriesController implements SectionController {
         public SeriesBlock(Series series, int blockWidth) {
             hasDetails = series.hasDetails();
             contentBox = new VBox();
-            fullNode = frame(contentBox, 5);
+            fullNode = frame(contentBox, 4);
 
             fullNode.setStyle(fullNode.getStyle() + Styler.getColorfullStyle(BORDER, Styler.StandardColor.BLACK)
                     + Styler.getColorfullStyle(BACKGROUND, series.getGrade().getColor()));
@@ -180,7 +180,7 @@ public class MainSeriesController implements SectionController {
         private void fillOpenedDetailsBox() {
             contentBox.getChildren().addAll(
                     titleLabel,
-                    getPaneWithHeight(10),
+                    getPaneWithHeight(8),
                     detailLabel);
         }
     }

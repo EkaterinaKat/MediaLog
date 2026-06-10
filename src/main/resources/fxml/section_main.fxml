@@ -6,22 +6,22 @@
 
     <top>
         <VBox>
-            <Pane minHeight="10" maxHeight="10"/>
+            <Pane minHeight="8" maxHeight="8"/>
             <HBox fx:id="buttonBox"/>
-            <Pane minHeight="10" maxHeight="10"/>
+            <Pane minHeight="8" maxHeight="8"/>
         </VBox>
     </top>
 
     <center>
-        <Pane fx:id="mainPane" maxHeight="800" minHeight="800"/>
+        <Pane fx:id="mainPane" maxHeight="640" minHeight="640"/>
     </center>
 
     <left>
-        <Pane minWidth="30" maxWidth="30"/>
+        <Pane minWidth="24" maxWidth="24"/>
     </left>
 
     <right>
-        <Pane minWidth="30" maxWidth="30"/>
+        <Pane minWidth="24" maxWidth="24"/>
     </right>
 
 

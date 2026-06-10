@@ -6,20 +6,20 @@
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml">
 
-    <Pane minWidth="30" maxWidth="30"/>
+    <Pane minWidth="24" maxWidth="24"/>
 
     <VBox>
-        <Pane minHeight="15" maxHeight="15"/>
-        <ImageView fx:id="imageView" fitWidth="500" fitHeight="500"/>
+        <Pane minHeight="12" maxHeight="12"/>
+        <ImageView fx:id="imageView" fitWidth="400" fitHeight="400"/>
     </VBox>
 
-    <Pane minWidth="20" maxWidth="20"/>
+    <Pane minWidth="16" maxWidth="16"/>
 
     <VBox>
 
-        <Pane minHeight="15" maxHeight="15"/>
+        <Pane minHeight="12" maxHeight="12"/>
 
-        <GridPane vgap="10" hgap="20">
+        <GridPane vgap="8" hgap="16">
             <Label text="Image" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
             <TextField fx:id="imageTextField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
@@ -27,7 +27,7 @@
             <TextField fx:id="titleTextField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
             <Label text="Comment" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-            <TextArea fx:id="commentTextArea" GridPane.rowIndex="2" GridPane.columnIndex="1" maxHeight="100"
+            <TextArea fx:id="commentTextArea" GridPane.rowIndex="2" GridPane.columnIndex="1" maxHeight="80"
                       wrapText="true"/>
 
             <Label text="Year" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
@@ -48,23 +48,23 @@
             <Label text="Singer" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
             <HBox GridPane.rowIndex="8" GridPane.columnIndex="1">
                 <ComboBox fx:id="singerComboBox"/>
-                <Pane minWidth="5" maxWidth="5"/>
+                <Pane minWidth="4" maxWidth="4"/>
                 <Button text="+" fx:id="addSingerButton"/>
             </HBox>
 
             <Label text="Genres" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
             <HBox GridPane.rowIndex="9" GridPane.columnIndex="1">
                 <Pane fx:id="genrePane"/>
-                <Pane minWidth="5" maxWidth="5"/>
+                <Pane minWidth="4" maxWidth="4"/>
                 <Button text="+" fx:id="addGenreButton"/>
             </HBox>
         </GridPane>
 
-        <Pane minHeight="15" maxHeight="15"/>
+        <Pane minHeight="12" maxHeight="12"/>
 
         <Button fx:id="saveButton" text="Save"/>
 
     </VBox>
 
-    <Pane minWidth="30" maxWidth="30"/>
+    <Pane minWidth="24" maxWidth="24"/>
 </HBox>

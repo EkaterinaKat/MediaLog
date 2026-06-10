@@ -1,10 +1,9 @@
 package org.katyshevtseva.medialog;
 
 import com.katyshevtseva.fx.windowbuilder.WindowBuilder;
-import javafx.stage.Screen;
-import org.katyshevtseva.medialog.view.MainController;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.katyshevtseva.medialog.view.MainController;
 
 import static org.katyshevtseva.medialog.view.utils.ViewConstants.MAIN_DIALOG;
 

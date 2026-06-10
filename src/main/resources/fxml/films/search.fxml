@@ -7,19 +7,19 @@
 <VBox xmlns:fx="http://javafx.com/fxml"
       xmlns="http://javafx.com/javafx">
 
-    <Pane minHeight="30" maxHeight="30"/>
+    <Pane minHeight="24" maxHeight="24"/>
 
     <HBox>
-        <Pane minWidth="30" maxWidth="30"/>
-        <TextField fx:id="searchTextField" prefWidth="300"/>
-        <Pane minWidth="15" maxWidth="15"/>
+        <Pane minWidth="24" maxWidth="24"/>
+        <TextField fx:id="searchTextField" prefWidth="240"/>
+        <Pane minWidth="12" maxWidth="12"/>
         <Button fx:id="searchButton" text="Search"/>
     </HBox>
 
-    <ScrollPane prefWidth="1260" minHeight="1260" maxHeight="800">
+    <ScrollPane prefWidth="1008" minHeight="1008" maxHeight="640">
         <HBox>
-            <Pane minWidth="30" maxWidth="30"/>
-            <Pane fx:id="contentPane" minWidth="1200" maxWidth="1200"/>
+            <Pane minWidth="24" maxWidth="24"/>
+            <Pane fx:id="contentPane" minWidth="960" maxWidth="960"/>
         </HBox>
     </ScrollPane>
 

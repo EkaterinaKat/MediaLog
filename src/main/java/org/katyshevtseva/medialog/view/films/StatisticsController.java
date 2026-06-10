@@ -34,11 +34,11 @@ public class StatisticsController implements SectionController {
         yAxis.setTickLabelFormatter(new IntegerStringConverter());
         chart = new BarChart<>(xAxis, yAxis);
         chart.setBarGap(0.1);
-        chart.setMinHeight(650);
+        chart.setMinHeight(520);
 
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setContent(chart);
-        FxUtils.setSize(scrollPane, new Size(700, 1300));
+        FxUtils.setSize(scrollPane, new Size(560, 1040));
         root.getChildren().add(scrollPane);
     }
 
@@ -49,7 +49,7 @@ public class StatisticsController implements SectionController {
             series.getData().add(new XYChart.Data<>("" + entry.getKey(), entry.getValue()));
         }
         chart.getData().add(series);
-        int chartWidth = yearFilmCountMap.size() * 30;
+        int chartWidth = yearFilmCountMap.size() * 24;
         chart.setMinWidth(chartWidth);
     }
 

@@ -4,8 +4,8 @@
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml">
 
-    <VBox maxWidth="300" minWidth="300" styleClass="black_border">
-        <GridPane vgap="40" alignment="CENTER">
+    <VBox maxWidth="240" minWidth="240" styleClass="black_border">
+        <GridPane vgap="32" alignment="CENTER">
             <VBox fx:id="buttonBox" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
         </GridPane>
     </VBox>

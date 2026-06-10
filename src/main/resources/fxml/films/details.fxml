@@ -7,26 +7,26 @@
 <HBox xmlns:fx="http://javafx.com/fxml"
       xmlns="http://javafx.com/javafx">
 
-    <Pane minWidth="30" maxWidth="30"/>
+    <Pane minWidth="24" maxWidth="24"/>
 
     <VBox>
-        <Pane minHeight="30" maxHeight="30"/>
+        <Pane minHeight="24" maxHeight="24"/>
         <Label fx:id="titleLabel" styleClass="font_size_25"/>
-        <Pane minHeight="20" maxHeight="20"/>
+        <Pane minHeight="16" maxHeight="16"/>
         <HBox fx:id="buttonBox"/>
-        <Pane minHeight="30" maxHeight="30"/>
+        <Pane minHeight="24" maxHeight="24"/>
 
         <HBox>
             <VBox>
-                <ImageView fx:id="imageView" fitHeight="600" fitWidth="300"/>
-                <Pane minHeight="30" maxHeight="30"/>
+                <ImageView fx:id="imageView" fitHeight="480" fitWidth="240"/>
+                <Pane minHeight="24" maxHeight="24"/>
                 <Button fx:id="actorsButton" text="Actors"/>
             </VBox>
 
-            <Pane minWidth="30" maxWidth="30"/>
+            <Pane minWidth="24" maxWidth="24"/>
             <VBox>
                 <Label fx:id="detailsLabel"/>
-                <Pane minHeight="30" maxHeight="30"/>
+                <Pane minHeight="24" maxHeight="24"/>
                 <VBox fx:id="trailerBox"/>
             </VBox>
 

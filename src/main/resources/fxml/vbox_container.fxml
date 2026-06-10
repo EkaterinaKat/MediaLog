@@ -4,10 +4,10 @@
 <VBox xmlns:fx="http://javafx.com/fxml"
       xmlns="http://javafx.com/javafx">
 
-    <Pane minHeight="20" maxHeight="20"/>
+    <Pane minHeight="16" maxHeight="16"/>
 
     <HBox>
-        <Pane minWidth="20" maxWidth="20"/>
+        <Pane minWidth="16" maxWidth="16"/>
         <VBox fx:id="root">
 
         </VBox>

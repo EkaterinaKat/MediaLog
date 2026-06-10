@@ -51,10 +51,10 @@ public class ListsController implements SectionController {
     }
 
     private void adjustFilmsPane() {
-        int gridColumnWidth = 210;
-        Size gridColumnSize = new Size(780, gridColumnWidth);
-        Size smallGridColumnSize = new Size(380, gridColumnWidth);
-        int filmBlockWidth = gridColumnWidth - 50;//BlockGridController FRAME_SIZE = 20; 50=20*2+10; 10 на scrollbar
+        int gridColumnWidth = 168;
+        Size gridColumnSize = new Size(624, gridColumnWidth);
+        Size smallGridColumnSize = new Size(304, gridColumnWidth);
+        int filmBlockWidth = gridColumnWidth - 40;//BlockGridController FRAME_SIZE = 20; 50=20*2+10; 10 на scrollbar
 
         //FAVOURITE, EXCELLENT, GOOD, NORMAL
         for (FilmGrade grade : Arrays.asList(FAVOURITE, EXCELLENT, GOOD, NORMAL)) {

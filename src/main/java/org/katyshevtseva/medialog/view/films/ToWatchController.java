@@ -23,9 +23,9 @@ import static com.katyshevtseva.fx.ImageSizeUtil.setImageWidthPreservingRatio;
 import static org.katyshevtseva.medialog.view.utils.ViewConstants.FILM_DETAIL_DIALOG;
 
 public class ToWatchController implements SectionController {
-    private static final int POSTER_WIDTH = 200;
-    private static final int DESC_WIDTH = 350;
-    private static final int GRID_WIDTH = 1200;
+    private static final int POSTER_WIDTH = 160;
+    private static final int DESC_WIDTH = 280;
+    private static final int GRID_WIDTH = 960;
     @FXML
     private VBox contentPane;
 
@@ -60,7 +60,7 @@ public class ToWatchController implements SectionController {
         hBox.setStyle(Styler.getBlackBorderStyle());
         hBox.getChildren().addAll(
                 imageView,
-                getPaneWithWidth(10),
+                getPaneWithWidth(8),
                 descLabel);
 
         return hBox;

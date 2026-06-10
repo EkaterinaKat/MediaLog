@@ -5,27 +5,27 @@
             xmlns:fx="http://javafx.com/fxml">
 
     <top>
-        <Pane minHeight="30" maxHeight="30"/>
+        <Pane minHeight="24" maxHeight="24"/>
     </top>
 
     <center>
         <HBox>
-            <VBox fx:id="singerBox" maxWidth="500" minWidth="500" styleClass="black_border"/>
-            <Pane minWidth="15" maxWidth="15"/>
-            <VBox fx:id="genreBox" maxWidth="500" minWidth="500" styleClass="black_border"/>
+            <VBox fx:id="singerBox" maxWidth="400" minWidth="400" styleClass="black_border"/>
+            <Pane minWidth="12" maxWidth="12"/>
+            <VBox fx:id="genreBox" maxWidth="400" minWidth="400" styleClass="black_border"/>
         </HBox>
     </center>
 
     <left>
-        <Pane minWidth="30" maxWidth="30"/>
+        <Pane minWidth="24" maxWidth="24"/>
     </left>
 
     <right>
-        <Pane minWidth="30" maxWidth="30"/>
+        <Pane minWidth="24" maxWidth="24"/>
     </right>
 
     <bottom>
-        <Pane minHeight="30" maxHeight="30"/>
+        <Pane minHeight="24" maxHeight="24"/>
     </bottom>
 
 </BorderPane>

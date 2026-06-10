@@ -29,8 +29,8 @@ import static com.katyshevtseva.fx.Styler.ThingToColor.BACKGROUND;
 import static org.katyshevtseva.medialog.view.utils.ViewConstants.FILM_DETAIL_DIALOG;
 
 public class ViewingHistoryController implements SectionController {
-    private static final int POSTER_WIDTH = 222;
-    private static final int GRID_WIDTH = 1200;
+    private static final int POSTER_WIDTH = 178;
+    private static final int GRID_WIDTH = 960;
     private Integer year;
     @FXML
     private VBox contentPane;
@@ -61,12 +61,12 @@ public class ViewingHistoryController implements SectionController {
         for (Month month : ViewingHistoryService.getMonthsWithViews(year)) {
             contentPane.getChildren().add(getMonthTitle(month));
             contentPane.getChildren().add(getFilmGridNode(ViewingHistoryService.getFilms(year, month)));
-            contentPane.getChildren().add(getPaneWithHeight(20));
+            contentPane.getChildren().add(getPaneWithHeight(16));
         }
     }
 
     private Node getMonthTitle(Month month) {
-        Label label = new LabelBuilder().text(month.getTitle()).textSize(20).build();
+        Label label = new LabelBuilder().text(month.getTitle()).textSize(16).build();
         HBox hBox = new HBox();
         hBox.setStyle(Styler.getColorfullStyle(BACKGROUND, "#EF47FF"));
         FxUtils.setWidth(hBox, GRID_WIDTH);
@@ -84,20 +84,20 @@ public class ViewingHistoryController implements SectionController {
     private Node getFilmNode(Film film, int blockWidth) {
         Label nameLabel = new Label(film.getTitleAndYear());
         FxUtils.setWidth(nameLabel, blockWidth);
-        FxUtils.setHeight(nameLabel, 50);
+        FxUtils.setHeight(nameLabel, 40);
         nameLabel.setWrapText(true);
         nameLabel.setTextAlignment(TextAlignment.CENTER);
         nameLabel.setAlignment(Pos.BASELINE_CENTER);
 
         VBox vBox = new VBox();
         vBox.getChildren().addAll(
-                getPaneWithHeight(10),
+                getPaneWithHeight(8),
                 nameLabel,
-                getPaneWithHeight(10));
+                getPaneWithHeight(8));
 
         ImageView imageView = new ImageView(PosterFileManager.getPoster(film).getImage());
         setImageWidthPreservingRatio(imageView, blockWidth);
-        vBox.getChildren().addAll(imageView, getPaneWithHeight(10));
+        vBox.getChildren().addAll(imageView, getPaneWithHeight(8));
 
         HBox hBox = new HBox();
         hBox.getChildren().add(vBox);

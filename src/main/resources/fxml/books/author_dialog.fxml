@@ -6,19 +6,19 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml">
 
-    <Pane prefHeight="30"/>
+    <Pane prefHeight="24"/>
 
     <HBox>
-        <Pane prefWidth="30"/>
+        <Pane prefWidth="24"/>
 
-        <VBox maxWidth="310">
-            <TextField fx:id="nameTextField" prefWidth="400"/>
-            <Pane prefHeight="20"/>
-            <TextField fx:id="surnameTextField" prefWidth="400"/>
-            <Pane prefHeight="20"/>
+        <VBox maxWidth="248">
+            <TextField fx:id="nameTextField" prefWidth="320"/>
+            <Pane prefHeight="16"/>
+            <TextField fx:id="surnameTextField" prefWidth="320"/>
+            <Pane prefHeight="16"/>
             <Button text="Save" fx:id="saveButton"/>
         </VBox>
-        <Pane prefWidth="30"/>
+        <Pane prefWidth="24"/>
     </HBox>
 
 </VBox>

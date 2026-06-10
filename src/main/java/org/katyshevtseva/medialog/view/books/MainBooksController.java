@@ -47,8 +47,8 @@ import static org.katyshevtseva.medialog.view.books.AuthorImageUtils.getImageCon
 import static org.katyshevtseva.medialog.view.utils.ViewConstants.AUTHOR_DIALOG;
 
 public class MainBooksController implements SectionController {
-    private static final Size GRID_SIZE = new Size(850, 1300);
-    private static final int BLOCK_WIDTH = 370;
+    private static final Size GRID_SIZE = new Size(680, 1040);
+    private static final int BLOCK_WIDTH = 296;
     private BlockGridController<Author> authorGridController;
     @FXML
     private Button newAuthorButton;
@@ -91,14 +91,14 @@ public class MainBooksController implements SectionController {
 
         VBox vBox = new VBox();
         vBox.getChildren().addAll(
-                getPaneWithHeight(10),
+                getPaneWithHeight(8),
                 nameLabel,
-                getPaneWithHeight(10));
+                getPaneWithHeight(8));
 
         if (hasImage(author)) {
             vBox.getChildren().addAll(
                     placeImageInSquare(new ImageView(getImageContainer(author).getImage()), blockWidth),
-                    getPaneWithHeight(10));
+                    getPaneWithHeight(8));
         }
 
         for (Book book : BookService.find(author, getStringToSearchBook(author))) {
@@ -109,11 +109,11 @@ public class MainBooksController implements SectionController {
             label.setMaxWidth(blockWidth);
 
             label.setContextMenu(getBookContextMenu(book, author));
-            vBox.getChildren().addAll(label, getPaneWithHeight(10));
+            vBox.getChildren().addAll(label, getPaneWithHeight(8));
         }
 
         HBox hBox = new HBox();
-        hBox.getChildren().addAll(getPaneWithWidth(10), vBox, getPaneWithWidth(10));
+        hBox.getChildren().addAll(getPaneWithWidth(8), vBox, getPaneWithWidth(8));
         hBox.setStyle(Styler.getBlackBorderStyle());
         setHoverStyle(hBox, getColorfullStyle(BACKGROUND, "#EF47FF"));
         hBox.setOnContextMenuRequested(event -> showAuthorContextMenu(hBox, event, author));
@@ -176,7 +176,7 @@ public class MainBooksController implements SectionController {
         DialogConstructor.constructDialog(() -> {
             BookService.save(book, nameField.getValue(), author, actionBox.getValue(), gradeDcComboBox.getValue(), datePicker.getValue());
             updateContent();
-        }, 330, nameField, actionBox, gradeDcComboBox, datePicker);
+        }, 264, nameField, actionBox, gradeDcComboBox, datePicker);
 
     }
 

@@ -45,7 +45,7 @@ public class MainController extends AbstractSwitchController implements FxContro
     }
 
     private void placeButton(Button button) {
-        FxUtils.setWidth(button, 180);
-        buttonBox.getChildren().addAll(FxUtils.getPaneWithHeight(40), button);
+        FxUtils.setWidth(button, 144);
+        buttonBox.getChildren().addAll(FxUtils.getPaneWithHeight(32), button);
     }
 }

@@ -33,8 +33,8 @@ import static org.katyshevtseva.medialog.view.utils.ViewConstants.ACTOR_FILMS_DI
 
 @RequiredArgsConstructor
 public class ActorsController implements FxController {
-    private static final Size GRID_SIZE = new Size(900, 960);
-    private static final int BLOCK_WIDTH = 190;
+    private static final Size GRID_SIZE = new Size(720, 768);
+    private static final int BLOCK_WIDTH = 152;
     private final Film film;
     private BlockGridController<Role> actorGridController;
     @FXML
@@ -62,18 +62,18 @@ public class ActorsController implements FxController {
 
         VBox vBox = new VBox();
         vBox.getChildren().addAll(
-                getPaneWithHeight(10),
+                getPaneWithHeight(8),
                 nameLabel,
-                getPaneWithHeight(10));
+                getPaneWithHeight(8));
 
         if (role.getActor().getHasLoadedPhoto()) {
             ImageView imageView = new ImageView(ActorFileManager.getActorPhoto(role.getActor()).getImage());
             setImageWidthPreservingRatio(imageView, blockWidth);
-            vBox.getChildren().addAll(imageView, getPaneWithHeight(10));
+            vBox.getChildren().addAll(imageView, getPaneWithHeight(8));
         }
 
         HBox hBox = new HBox();
-        hBox.getChildren().addAll(getPaneWithWidth(10), vBox, getPaneWithWidth(10));
+        hBox.getChildren().addAll(getPaneWithWidth(8), vBox, getPaneWithWidth(8));
         hBox.setStyle(Styler.getBlackBorderStyle());
 
         hBox.setOnMouseClicked(event ->

@@ -9,7 +9,7 @@
     <top>
         <HBox>
             <BorderPane.margin>
-                <Insets bottom="15" left="30" right="15" top="15"/>
+                <Insets bottom="12" left="24" right="12" top="12"/>
             </BorderPane.margin>
             <Button text="New Album" fx:id="newAlbumButton"/>
         </HBox>
@@ -20,15 +20,15 @@
     </center>
 
     <left>
-        <Pane minWidth="30" maxWidth="30"/>
+        <Pane minWidth="24" maxWidth="24"/>
     </left>
 
     <right>
-        <Pane minWidth="30" maxWidth="30"/>
+        <Pane minWidth="24" maxWidth="24"/>
     </right>
 
     <bottom>
-        <Pane minHeight="30" maxHeight="30"/>
+        <Pane minHeight="24" maxHeight="24"/>
     </bottom>
 
 </BorderPane>

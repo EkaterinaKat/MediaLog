@@ -205,4 +205,9 @@ public class Dao {
                 .setParameter("search_string", "%" + searchString.toUpperCase() + "%")
                 .setParameter("author_id", author.getId()));
     }
+
+    public static List<Book> getAllBooks() {
+        return coreDao.getAll(Book.class.getSimpleName());
+    }
+
 }

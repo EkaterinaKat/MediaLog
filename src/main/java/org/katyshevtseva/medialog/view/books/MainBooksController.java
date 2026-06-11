@@ -12,12 +12,6 @@ import com.katyshevtseva.fx.dialogconstructor.DialogConstructor;
 import com.katyshevtseva.fx.switchcontroller.SectionController;
 import com.katyshevtseva.fx.windowbuilder.WindowBuilder;
 import com.katyshevtseva.general.GeneralUtils;
-import org.katyshevtseva.medialog.core.books.AuthorService;
-import org.katyshevtseva.medialog.core.books.BookService;
-import org.katyshevtseva.medialog.core.books.model.Author;
-import org.katyshevtseva.medialog.core.books.model.Book;
-import org.katyshevtseva.medialog.core.books.model.BookAction;
-import org.katyshevtseva.medialog.core.books.model.BookGrade;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -31,10 +25,20 @@ import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import org.katyshevtseva.medialog.core.Dao;
+import org.katyshevtseva.medialog.core.books.AuthorService;
+import org.katyshevtseva.medialog.core.books.BookService;
+import org.katyshevtseva.medialog.core.books.model.Author;
+import org.katyshevtseva.medialog.core.books.model.Book;
+import org.katyshevtseva.medialog.core.books.model.BookAction;
+import org.katyshevtseva.medialog.core.books.model.BookGrade;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.katyshevtseva.fx.FxUtils.getPaneWithHeight;
@@ -50,6 +54,8 @@ public class MainBooksController implements SectionController {
     private static final Size GRID_SIZE = new Size(680, 1040);
     private static final int BLOCK_WIDTH = 296;
     private BlockGridController<Author> authorGridController;
+    private Map<Long, List<Book>> booksByAuthorId = new HashMap<>();
+    private Map<Long, Boolean> autorIdHasImageCache;
     @FXML
     private Button newAuthorButton;
     @FXML
@@ -95,13 +101,13 @@ public class MainBooksController implements SectionController {
                 nameLabel,
                 getPaneWithHeight(8));
 
-        if (hasImage(author)) {
+        if (autorIdHasImageCache.get(author.getId())) {
             vBox.getChildren().addAll(
                     placeImageInSquare(new ImageView(getImageContainer(author).getImage()), blockWidth),
                     getPaneWithHeight(8));
         }
 
-        for (Book book : BookService.find(author, getStringToSearchBook(author))) {
+        for (Book book : getBooksForAuthorNode(author)) {
             Label label = new Label(book.getListInfo());
 
             label.setStyle(label.getStyle() + Styler.getColorfullStyle(BACKGROUND, book.getGrade().getColor()));
@@ -120,6 +126,18 @@ public class MainBooksController implements SectionController {
         return hBox;
     }
 
+    private List<Book> getBooksForAuthorNode(Author author) {
+        List<Book> books = booksByAuthorId.getOrDefault(author.getId(), Collections.emptyList());
+        String searchString = getStringToSearchBook(author);
+        if (GeneralUtils.isEmpty(searchString)) {
+            return books;
+        }
+        String upper = searchString.toUpperCase();
+        return books.stream()
+                .filter(book -> book.getName().toUpperCase().contains(upper))
+                .collect(Collectors.toList());
+    }
+
     private String getStringToSearchBook(Author author) {
         String ss = searchTextField.getText();
 
@@ -130,7 +148,7 @@ public class MainBooksController implements SectionController {
         //ситуация когда автор подходит поисковому запросу тогда нужно показать все его книги
         if (authorMatchesSearchString)
             return null;
-        //ситуация когда автор не подходит запросу тогда есть смысл показывать только книги подходящие запросу
+            //ситуация когда автор не подходит запросу тогда есть смысл показывать только книги подходящие запросу
         else
             return ss;
     }
@@ -181,11 +199,18 @@ public class MainBooksController implements SectionController {
     }
 
     private void updateContent() {
-        List<Author> authors = AuthorService.getAll(searchTextField.getText())
-                .stream()
-                .sorted(Comparator.comparing(Author::getSortingString))
-                .sorted(Comparator.comparing(this::hasImage).reversed())
+        booksByAuthorId = Dao.getAllBooks().stream()
+                .collect(Collectors.groupingBy(book -> book.getAuthor().getId()));
 
+        List<Author> authors = AuthorService.getAll(searchTextField.getText());
+        autorIdHasImageCache = new HashMap<>();
+        for (Author author : authors) {
+            autorIdHasImageCache.put(author.getId(), hasImage(author));
+        }
+
+        authors = authors.stream()
+                .sorted(Comparator.comparing(Author::getSortingString))
+                .sorted(Comparator.comparing((Author a) -> autorIdHasImageCache.get(a.getId())).reversed())
                 .collect(Collectors.toList());
 
         authorGridController.setContent(authors);

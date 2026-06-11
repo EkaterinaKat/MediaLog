@@ -9,9 +9,6 @@ import com.katyshevtseva.fx.dialog.StandardDialogBuilder;
 import com.katyshevtseva.fx.windowbuilder.FxController;
 import com.katyshevtseva.fx.windowbuilder.WindowBuilder;
 import com.katyshevtseva.general.GeneralUtils;
-import org.katyshevtseva.medialog.core.films.ActorFileManager;
-import org.katyshevtseva.medialog.core.films.model.Film;
-import org.katyshevtseva.medialog.core.films.model.Role;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -21,6 +18,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import lombok.RequiredArgsConstructor;
+import org.katyshevtseva.medialog.core.Dao;
+import org.katyshevtseva.medialog.core.films.ActorFileManager;
+import org.katyshevtseva.medialog.core.films.model.Film;
+import org.katyshevtseva.medialog.core.films.model.Role;
 
 import java.util.Comparator;
 import java.util.List;
@@ -83,7 +84,8 @@ public class ActorsController implements FxController {
     }
 
     private void updateContent() {
-        if (GeneralUtils.isEmpty(film.getRoles())) {
+        List<Role> roles = Dao.findRoles(film);
+        if (GeneralUtils.isEmpty(roles)) {
             new StandardDialogBuilder().openInfoDialog("Актёров нет...");
             return;
         }
@@ -92,8 +94,7 @@ public class ActorsController implements FxController {
                 .comparing(Role::actorDoesntHavePhoto)
                 .thenComparing(Role::descriptionIsEmpty);
 
-        List<Role> actors = film.getRoles()
-                .stream()
+        List<Role> actors = roles.stream()
                 .peek(role -> role.getActor().setHasLoadedPhoto(ActorFileManager.actorHasPhoto(role.getActor())))
                 .sorted(comparator)
                 .collect(Collectors.toList());

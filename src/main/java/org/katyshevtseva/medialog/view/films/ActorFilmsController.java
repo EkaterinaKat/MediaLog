@@ -6,11 +6,6 @@ import com.katyshevtseva.fx.Styler;
 import com.katyshevtseva.fx.component.ComponentBuilder;
 import com.katyshevtseva.fx.component.controller.BlockGridController;
 import com.katyshevtseva.fx.windowbuilder.FxController;
-import org.katyshevtseva.medialog.core.films.PosterFileManager;
-import org.katyshevtseva.medialog.core.films.model.Actor;
-import org.katyshevtseva.medialog.core.films.model.Film;
-import org.katyshevtseva.medialog.core.films.model.PosterState;
-import org.katyshevtseva.medialog.core.films.model.Role;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -20,6 +15,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import lombok.RequiredArgsConstructor;
+import org.katyshevtseva.medialog.core.Dao;
+import org.katyshevtseva.medialog.core.films.PosterFileManager;
+import org.katyshevtseva.medialog.core.films.model.Actor;
+import org.katyshevtseva.medialog.core.films.model.Film;
+import org.katyshevtseva.medialog.core.films.model.PosterState;
+import org.katyshevtseva.medialog.core.films.model.Role;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -76,11 +77,11 @@ public class ActorFilmsController implements FxController {
     }
 
     private void updateContent() {
-        List<Film> actors = actor.getRoles()
+        List<Film> films = Dao.findRoles(actor)
                 .stream()
                 .map(Role::getFilm)
                 .collect(Collectors.toList());
 
-        filmGridController.setContent(actors);
+        filmGridController.setContent(films);
     }
 }

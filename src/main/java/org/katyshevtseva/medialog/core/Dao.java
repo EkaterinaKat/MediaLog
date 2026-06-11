@@ -3,16 +3,21 @@ package org.katyshevtseva.medialog.core;
 import com.katyshevtseva.general.GeneralUtils;
 import com.katyshevtseva.hibernate.CoreDao;
 import com.katyshevtseva.hibernate.HasId;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.katyshevtseva.medialog.core.books.model.Author;
 import org.katyshevtseva.medialog.core.books.model.Book;
-import org.katyshevtseva.medialog.core.films.model.*;
+import org.katyshevtseva.medialog.core.films.model.Actor;
+import org.katyshevtseva.medialog.core.films.model.Film;
+import org.katyshevtseva.medialog.core.films.model.FilmGenre;
+import org.katyshevtseva.medialog.core.films.model.FilmGrade;
+import org.katyshevtseva.medialog.core.films.model.Role;
+import org.katyshevtseva.medialog.core.films.model.Trailer;
 import org.katyshevtseva.medialog.core.music.entity.Album;
 import org.katyshevtseva.medialog.core.music.entity.Genre;
 import org.katyshevtseva.medialog.core.music.entity.Singer;
 import org.katyshevtseva.medialog.core.series.model.Series;
 import org.katyshevtseva.medialog.core.series.model.SeriesState;
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 
 import java.util.Date;
 import java.util.List;
@@ -125,6 +130,14 @@ public class Dao {
             criteria.add(Restrictions.eq("film.id", film.getId()));
             return criteria;
         });
+    }
+
+    public static List<Role> findRoles(Film film) {
+        return coreDao.find(Role.class, Restrictions.eq("film", film));
+    }
+
+    public static List<Role> findRoles(Actor actor) {
+        return coreDao.find(Role.class, Restrictions.eq("actor", actor));
     }
 
     public static Actor findActorByKpId(Long kpId) {

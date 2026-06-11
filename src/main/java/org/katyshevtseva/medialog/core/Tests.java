@@ -28,7 +28,7 @@ public class Tests {
         for (Film film : Dao.getAllFilms()) {
             assert_(
                     film,
-                    film.getNumOfActors().equals(film.getRoles().size()),
+                    film.getNumOfActors().equals(Dao.findRoles(film).size()),
                     "film.getNumOfActors().equals(roles.size())");
         }
         System.out.println("testNumOfActorsInFilms done");
@@ -146,7 +146,7 @@ public class Tests {
 
     private static void printActorsByNumOfFilms(List<Actor> actors, int num) {
         List<Actor> filteredActors = actors.stream()
-                .filter(actor -> actor.getRoles().size() == num)
+                .filter(actor -> Dao.findRoles(actor).size() == num)
                 .collect(Collectors.toList());
 
 
@@ -160,7 +160,7 @@ public class Tests {
         List<Actor> actors = Dao.getAllActors();
         for (Actor actor : actors) {
 
-            if (actor.getRoles().size() > 1) {
+            if (Dao.findRoles(actor).size() > 1) {
                 ActorPhotoLoader.loadActorPhoto(actor);
             }
         }

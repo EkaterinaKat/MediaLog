@@ -5,20 +5,21 @@ import com.katyshevtseva.fx.switchcontroller.AbstractSwitchController;
 import com.katyshevtseva.fx.switchcontroller.Section;
 import com.katyshevtseva.fx.windowbuilder.FxController;
 import com.katyshevtseva.fx.windowbuilder.WindowBuilder;
-import org.katyshevtseva.medialog.core.NbLogger;
-import org.katyshevtseva.medialog.view.books.MainBooksController;
-import org.katyshevtseva.medialog.view.films.MainFilmsController;
-import org.katyshevtseva.medialog.view.music.MainMusicController;
-import org.katyshevtseva.medialog.view.series.MainSeriesController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import org.katyshevtseva.medialog.view.books.MainBooksController;
+import org.katyshevtseva.medialog.view.films.MainFilmsController;
+import org.katyshevtseva.medialog.view.music.MainMusicController;
+import org.katyshevtseva.medialog.view.series.MainSeriesController;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.katyshevtseva.medialog.view.utils.ViewConstants.*;
+import static org.katyshevtseva.medialog.view.utils.ViewConstants.BOOKS_NODE;
+import static org.katyshevtseva.medialog.view.utils.ViewConstants.SECTION_MAIN_NODE;
+import static org.katyshevtseva.medialog.view.utils.ViewConstants.SERIES_NODE;
 
 public class MainController extends AbstractSwitchController implements FxController {
     @FXML
@@ -28,7 +29,6 @@ public class MainController extends AbstractSwitchController implements FxContro
 
     @FXML
     private void initialize() {
-        NbLogger.log("********* Started *********");
         init(getSections(), mainPane, this::placeButton);
     }
 

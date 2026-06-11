@@ -72,7 +72,7 @@ public class AdditionalInfoService {
 
     private static void loadPhotoIfNeeded(Actor actor) {
         Actor refreshed = Dao.getRefreshed(actor);
-        if (refreshed.getRoles().size() > 1) {
+        if (Dao.findRoles(refreshed).size() > 1) {
             ActorPhotoLoader.loadActorPhoto(actor);
         }
     }

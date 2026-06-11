@@ -1,6 +1,5 @@
 package org.katyshevtseva.medialog.core.films;
 
-import com.katyshevtseva.general.GeneralUtils;
 import org.katyshevtseva.medialog.core.Dao;
 import org.katyshevtseva.medialog.core.films.model.Film;
 import org.katyshevtseva.medialog.core.films.model.FilmGrade;
@@ -10,7 +9,9 @@ import org.katyshevtseva.medialog.core.films.model.Trailer;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static org.katyshevtseva.medialog.core.films.model.FilmStatus.*;
+import static org.katyshevtseva.medialog.core.films.model.FilmStatus.TO_WATCH;
+import static org.katyshevtseva.medialog.core.films.model.FilmStatus.WATCHED;
+import static org.katyshevtseva.medialog.core.films.model.FilmStatus.WATCHED_AND_TO_WATCH;
 
 public class StatusService {
 
@@ -34,10 +35,8 @@ public class StatusService {
     }
 
     private static void deleteFilm(Film film) {
-        if (!GeneralUtils.isEmpty(film.getRoles())) {
-            for (Role role : film.getRoles()) {
-                Dao.delete(role);
-            }
+        for (Role role : Dao.findRoles(film)) {
+            Dao.delete(role);
         }
         for (Trailer trailer : Dao.findTrailers(film)) {
             Dao.delete(trailer);
